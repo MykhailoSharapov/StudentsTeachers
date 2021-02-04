@@ -12,6 +12,7 @@ namespace StudentsTeachers.Data.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int LessonId { get; set; }
+        public int LicenseNum { get; set; }
 
     }
 }

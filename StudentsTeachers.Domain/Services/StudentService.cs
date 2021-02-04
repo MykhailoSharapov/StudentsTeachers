@@ -28,7 +28,8 @@ namespace StudentsTeachers.Domain.Services
             var student = new Student
             {
                 FirstName = model.FirstName,
-                LastName = model.LastName
+                LastName = model.LastName,
+                InsuranceNum = model.InsuranceNum                
             };
 
             _studentsRepository.Create(student);
