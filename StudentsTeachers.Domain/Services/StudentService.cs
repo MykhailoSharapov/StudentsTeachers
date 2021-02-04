@@ -21,9 +21,9 @@ namespace StudentsTeachers.Domain.Services
 
         public StudentModel Create(StudentModel model)
         {
-            if(int.TryParse(model.FirstName, out int res))
+            if (!Validation(model))
             {
-                return new StudentModel { FirstName = "validation BL error", LastName = "Errorovich" };
+                throw new Exception("validation BL error");
             }
             var student = new Student
             {
@@ -54,6 +54,16 @@ namespace StudentsTeachers.Domain.Services
                 });
             }
 
+            return result;
+        }
+
+        private bool Validation(StudentModel model)
+        {
+            //create query for some service which validate is students insurance number is correct and active
+            var result = false;
+            var rand = new Random();
+            if (rand.Next(100) > 50)
+                result = true;
             return result;
         }
     }

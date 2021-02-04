@@ -20,9 +20,9 @@ namespace StudentsTeachers.Domain.Services
         }
         public TeacherModel Create(TeacherModel model)
         {
-            if (int.TryParse(model.FirstName, out int res))
+            if (!Validation(model))
             {
-                return new TeacherModel { FirstName = "validation BL error", LastName = "Errorovich" };
+                throw new Exception("validation BL error");
             }
             var teacher = new Teacher
             {
@@ -53,6 +53,16 @@ namespace StudentsTeachers.Domain.Services
                 });
             }
 
+            return result;
+        }
+
+        private bool Validation(TeacherModel model)
+        {
+            //create query for some service which validate is teachers license number is correct and active
+            var result = false;
+            var rand = new Random();
+            if (rand.Next(100) > 50)
+                result = true;
             return result;
         }
     }
