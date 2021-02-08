@@ -13,10 +13,12 @@ namespace StudentsTeachers.Domain.Services
     public class StudentService : IStudentService
     {
         private readonly IStudentRepository _studentsRepository;
+        private readonly ILicenseRepository _licensesRepository;
 
-        public StudentService(IStudentRepository studentsRepository)
+        public StudentService(IStudentRepository studentsRepository, ILicenseRepository licenseRepository)
         {
             _studentsRepository = studentsRepository;
+            _licensesRepository = licenseRepository;
         }
 
         public StudentModel Create(StudentModel model)
@@ -60,12 +62,9 @@ namespace StudentsTeachers.Domain.Services
 
         private bool Validation(StudentModel model)
         {
-            //create query for some service which validate is students insurance number is correct and active
-            var result = false;
-            var rand = new Random();
-            if (rand.Next(100) > 50)
-                result = true;
-            return result;
+            var licenses = _licensesRepository.GetAll();
+            var license = licenses.Where(w => w.Number == model.InsuranceNum);
+            return license.Any() ? true : false;
         }
     }
 }

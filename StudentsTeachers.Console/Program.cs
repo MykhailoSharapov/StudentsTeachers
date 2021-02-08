@@ -20,10 +20,11 @@ namespace StudentsTeachers.Console
         public static void StudentsTest()
         {
             var repository = new StudentDapperRepository();
-            var service = new StudentService(repository);
+            var licenseRepository = new LicenseEFRepository();
+            var service = new StudentService(repository,licenseRepository);
             var controller = new StudentsController(service);
 
-            var studentPostModel = new StudentPostModel { FirstName = "Puzo", LastName = "Moe" };
+            var studentPostModel = new StudentPostModel { FirstName = "Puzo", LastName = "Moe" ,LicenseNum = 1};
 
             controller.Create(studentPostModel);
 
@@ -32,10 +33,11 @@ namespace StudentsTeachers.Console
         public static void TeachersTest()
         {
             var repository = new TeacherAdoNetRepository();
-            var service = new TeacherService(repository);
+            var licenseRepository = new LicenseEFRepository();
+            var service = new TeacherService(repository, licenseRepository);
             var controller = new TeachersController(service);
 
-            var teacherPostModel = new TeacherPostModel { FirstName = "Puzo", LastName = "Moe" };
+            var teacherPostModel = new TeacherPostModel { FirstName = "Puzo", LastName = "Moe" ,LicenseNum = 2};
 
             controller.Create(teacherPostModel);
 

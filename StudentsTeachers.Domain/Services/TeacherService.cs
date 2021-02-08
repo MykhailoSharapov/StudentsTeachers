@@ -13,10 +13,12 @@ namespace StudentsTeachers.Domain.Services
     public class TeacherService : ITeacherService
     {
         private readonly ITeacherRepository _teachersRepository;
+        private readonly ILicenseRepository _licensesRepository;
 
-        public TeacherService(ITeacherRepository teachersRepository)
+        public TeacherService(ITeacherRepository teachersRepository, ILicenseRepository licenseRepository)
         {
             _teachersRepository = teachersRepository;
+            _licensesRepository = licenseRepository;
         }
         public TeacherModel Create(TeacherModel model)
         {
@@ -59,12 +61,9 @@ namespace StudentsTeachers.Domain.Services
 
         private bool Validation(TeacherModel model)
         {
-            //create query for some service which validate is teachers license number is correct and active
-            var result = false;
-            var rand = new Random();
-            if (rand.Next(100) > 50)
-                result = true;
-            return result;
+            var licenses = _licensesRepository.GetAll();
+            var license = licenses.Where(w => w.Number == model.LicenseNum);
+            return license.Any() ? true : false;
         }
     }
 }

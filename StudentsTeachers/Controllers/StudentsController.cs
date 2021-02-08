@@ -47,7 +47,8 @@ namespace StudentsTeachers.Controllers
             var studentModel = new StudentModel
             {
                 FirstName = model.FirstName,
-                LastName = model.LastName
+                LastName = model.LastName,
+                InsuranceNum = model.LicenseNum
             };
 
             var createResult = _studentsService.Create(studentModel);
