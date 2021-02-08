@@ -58,8 +58,7 @@ namespace StudentsTeachers.Domain.Services
 
             return result;
         }
-
-        private bool Validation(TeacherModel model)
+        public bool Validation(TeacherModel model)
         {
             var license = _licensesRepository.GetLicenseByNum(model.LicenseNum);
             return license != null ? true : false;

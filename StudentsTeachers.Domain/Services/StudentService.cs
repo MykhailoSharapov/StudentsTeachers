@@ -60,7 +60,7 @@ namespace StudentsTeachers.Domain.Services
             return result;
         }
 
-        private bool Validation(StudentModel model)
+        public bool Validation(StudentModel model)
         {
             var licenses = _licensesRepository.GetLicenseByNum(model.InsuranceNum);
             return licenses!=null ? true : false;
