@@ -25,7 +25,7 @@ namespace StudentsTeachers.Domain.Services
         {
             if (!Validation(model))
             {
-                throw new Exception("validation BL error");
+                throw new Exception("Insurance number not found");
             }
             var student = new Student
             {
@@ -62,9 +62,8 @@ namespace StudentsTeachers.Domain.Services
 
         private bool Validation(StudentModel model)
         {
-            var licenses = _licensesRepository.GetAll();
-            var license = licenses.Where(w => w.Number == model.InsuranceNum);
-            return license.Any() ? true : false;
+            var licenses = _licensesRepository.GetLicenseByNum(model.InsuranceNum);
+            return licenses!=null ? true : false;
         }
     }
 }

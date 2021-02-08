@@ -24,7 +24,7 @@ namespace StudentsTeachers.Console
             var service = new StudentService(repository,licenseRepository);
             var controller = new StudentsController(service);
 
-            var studentPostModel = new StudentPostModel { FirstName = "Puzo", LastName = "Moe" ,LicenseNum = 1};
+            var studentPostModel = new StudentPostModel { FirstName = "Puzo", LastName = "Moe" ,LicenseNum = 100};
 
             controller.Create(studentPostModel);
 

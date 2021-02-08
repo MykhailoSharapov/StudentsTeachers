@@ -24,7 +24,7 @@ namespace StudentsTeachers.Domain.Services
         {
             if (!Validation(model))
             {
-                throw new Exception("validation BL error");
+                throw new Exception("License number not found");
             }
             var teacher = new Teacher
             {
@@ -61,9 +61,8 @@ namespace StudentsTeachers.Domain.Services
 
         private bool Validation(TeacherModel model)
         {
-            var licenses = _licensesRepository.GetAll();
-            var license = licenses.Where(w => w.Number == model.LicenseNum);
-            return license.Any() ? true : false;
+            var license = _licensesRepository.GetLicenseByNum(model.LicenseNum);
+            return license != null ? true : false;
         }
     }
 }

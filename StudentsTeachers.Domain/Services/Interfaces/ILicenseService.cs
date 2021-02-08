@@ -10,5 +10,6 @@ namespace StudentsTeachers.Domain.Services.Interfaces
     public interface ILicenseService
     {
         IEnumerable<LicenseModel> GetAll();
+        LicenseModel GetLicenseByNum(int num);
     }
 }

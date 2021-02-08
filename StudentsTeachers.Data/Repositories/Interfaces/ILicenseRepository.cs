@@ -10,6 +10,7 @@ namespace StudentsTeachers.Data.Repositories.Interfaces
     public interface ILicenseRepository
     {
         IEnumerable<License> GetAll();
+        License GetLicenseByNum(int num);
        
     }
 }

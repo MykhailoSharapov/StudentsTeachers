@@ -35,5 +35,11 @@ namespace StudentsTeachers.Domain.Services
 
             return result;
         }
+        public LicenseModel GetLicenseByNum(int num)
+        {
+            var license = _licensesRepository.GetLicenseByNum(num);
+            var result = new LicenseModel { Id = license.Id, Number = license.Number };
+            return result;
+        }
     }
 }

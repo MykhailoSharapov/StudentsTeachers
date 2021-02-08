@@ -17,5 +17,13 @@ namespace StudentsTeachers.Data.Repositories
                 return ctx.Licenses.ToList();
             };
         }
+
+        public License GetLicenseByNum(int num)
+        {
+            using (var ctx = new LicenseContext("Default"))
+            {
+                return ctx.Licenses.FirstOrDefault(w => w.Number == num);
+            };
+        }
     }
 }
