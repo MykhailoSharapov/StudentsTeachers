@@ -67,6 +67,10 @@
     <Compile Include="Migrations\202102121917356_AddStudentToLicenses.designer.cs">
       <DependentUpon>202102121917356_AddStudentToLicenses.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102121937204_AddlicensesToTeachers.cs" />
+    <Compile Include="Migrations\202102121937204_AddlicensesToTeachers.designer.cs">
+      <DependentUpon>202102121937204_AddlicensesToTeachers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\License.cs" />
     <Compile Include="Models\Student.cs" />
@@ -92,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102121917356_AddStudentToLicenses.resx">
       <DependentUpon>202102121917356_AddStudentToLicenses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102121937204_AddlicensesToTeachers.resx">
+      <DependentUpon>202102121937204_AddlicensesToTeachers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -13,6 +13,6 @@ namespace StudentsTeachers.Data.Models
         public string LastName { get; set; }
         public int LessonId { get; set; }
         public int LicenseNum { get; set; }
-
+        public virtual ICollection<License> Licenses { get; set; }
     }
 }
