@@ -10,5 +10,8 @@ namespace StudentsTeachers.Data.Models
     {
         public int Id { get; set; }
         public int Number { get; set; }
+
+        public int StudentId { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

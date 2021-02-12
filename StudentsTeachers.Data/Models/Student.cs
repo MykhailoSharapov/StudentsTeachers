@@ -12,5 +12,6 @@ namespace StudentsTeachers.Data.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int InsuranceNum { get; set; }
+        public virtual ICollection<License> Licenses { get; set; }
     }
 }
